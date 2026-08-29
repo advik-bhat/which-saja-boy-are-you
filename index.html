@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saja Boys — Which Saja Boy Are You?</title>
+  <link rel="icon" type="image/jpg" href="faviconcan.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hidden Audio Element -->
+  <audio id="bg-audio" loop> 
+    <source src="soda_pop.mp3" type="audio/mpeg">  
+  </audio>
+
+  <!-- Cute Floating Music Player Button -->
+  <button class="music-toggle-btn" id="musicBtn" onclick="toggleMusic()">
+    <span id="musicIcon">🎵</span> <span id="musicText">Play Music 🎵</span>
+  </button>
+
+  <div class="decor-item decor-1" title="Saja Boys Lightstick">🪄</div>
+  <div class="decor-item decor-2" title="Cute Kitty Plush">🐱</div>
+  <div class="decor-item decor-3" title="Pink Soda">🥤</div>
+  <div class="decor-item decor-4" title="Live Concert VIP Ticket">🎟️</div>
+  <div class="decor-item decor-5" title="Glitter Crown">👑</div>
+  <div class="decor-item decor-6" title="Heart Lollipop">🍭</div>
+
+  <div class="sparkle" style="top: 15%; left: 18%;">✦</div>
+  <div class="sparkle" style="top: 25%; right: 18%;">✨</div>
+  <div class="sparkle" style="top: 60%; left: 8%;">✨</div>
+  <div class="sparkle" style="top: 75%; right: 12%;">✦</div>
+
+  <div class="sticky-note">
+    ♡ Be cool<br>
+    ♡ Be cute<br>
+    ♡ Be unstoppable<br>
+    ♡ Saja Boys forever ♡
+  </div>
+
+  <nav>
+    <div class="logo">SAJA BOYS 💖</div>
+    <ul class="nav-links">
+      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#members">Members</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="quiz">
+    <div class="hero-badge">✦ Official Fan Club Quiz ✦</div>
+    <h1 class="hero-title">Which <span>Saja Boy</span><br>Are You?</h1>
+    <p class="hero-subtitle">Take the ultimate 10-question Saja Boys personality quiz!</p>
+    <button class="quiz-btn" onclick="startQuiz()">Take the Quiz ✨</button>
+  </section>
+
+  <section class="members-section" id="members">
+    <h2 class="section-title">Meet the Boys</h2>
+    <p class="section-hint">✨ Click any member card to open their bio! ✨</p>
+    <div class="grid">
+      
+      <div class="card" onclick="showMemberDetails('Abby')">
+        <div class="image-container">
+          <img src="abby1.jpg" alt="Abby" class="card-media" onerror="this.src='https://via.placeholder.com/300x400/ffb7c5/5c434a?text=Abby'">
+        </div>
+        <h3 class="card-name">Abby 💪</h3>
+        <p class="card-role">The Strong One</p>
+        <div class="badges">★ ★ ★</div>
+      </div>
+
+      <div class="card" onclick="showMemberDetails('Baby')">
+        <div class="image-container">
+          <img src="baby.jpg" alt="Baby" class="card-media" onerror="this.src='https://via.placeholder.com/300x400/ffb7c5/5c434a?text=Baby'">
+        </div>
+        <h3 class="card-name">Baby 🐣</h3>
+        <p class="card-role">The Adorable Youngest</p>
+        <div class="badges">★ ★ ★</div>
+      </div>
+
+      <div class="card" onclick="showMemberDetails('Jinu')">
+        <div class="image-container">
+          <img src="jinu1.jpg" alt="Jinu" class="card-media" onerror="this.src='https://via.placeholder.com/300x400/ffb7c5/5c434a?text=Jinu'">
+        </div>
+        <h3 class="card-name">Jinu 🎤</h3>
+        <p class="card-role">The Cool Leader</p>
+        <div class="badges">★ ★ ★</div>
+      </div>
+
+      <div class="card" onclick="showMemberDetails('Mystery')">
+        <div class="image-container">
+          <img src="mystery1.webp" alt="Mystery" class="card-media" onerror="this.src='https://via.placeholder.com/300x400/ffb7c5/5c434a?text=Mystery'">
+        </div>
+        <h3 class="card-name">Mystery 🌫️</h3>
+        <p class="card-role">The Quiet & Mysterious</p>
+        <div class="badges">★ ★ ★</div>
+      </div>
+
+      <div class="card" onclick="showMemberDetails('Romance')">
+        <div class="image-container">
+          <img src="pinkhair.jpg" alt="Romance" class="card-media" onerror="this.src='https://via.placeholder.com/300x400/ffb7c5/5c434a?text=Romance'">
+        </div>
+        <h3 class="card-name">Romance 💕</h3>
+        <p class="card-role">The Cheerful Heartthrob</p>
+        <div class="badges">★ ★ ★</div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="popupModal">
+    <div class="modal-card">
+      <button class="close-btn" onclick="closeModal()">×</button>
+      <div class="progress-bar-container" id="progressBarBox" style="display:none;">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Saja Boys Official Fan Spot • Made with 💖 & Pastel Aesthetics</p>
+  </footer>
+<script src="script.js"></script>
+</body>
+</html>
