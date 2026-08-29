@@ -42,20 +42,22 @@ The member cards use the same character data to display additional information t
 ```text
 which-saja-boy-are-you/
 │
-├── index.html       # Main webpage structure
-├── style.css        # Styling, animations, and responsive design
-├── script.js        # Quiz logic and interactive functionality
+├── index.html        # Main webpage structure
+├── style.css         # Styling, animations, and responsive design
+├── script.js         # Quiz logic and interactive functionality
 │
 ├── abby1.jpg
 ├── baby.jpg
 ├── jinu1.jpg
 ├── mystery1.webp
-├── pinkhair.jpg     # Character images
-├── favicon.jpg      # Website favicon
+├── pinkhair.jpg      # Character images
+├── favicon.jpg       # Website favicon
 │
-└── previews/        # Project preview images
+└── previews/         # Project preview images
     ├── quiz_screen.png
     └── result_screen.png
+```
+
 ## 📸 Preview
 
 ### Quiz
@@ -70,9 +72,10 @@ which-saja-boy-are-you/
 
 This is an unofficial, fan-made project created for learning and entertainment purposes.
 
-KPop Demon Hunters, the Saja Boys, characters, names, music, and related intellectual property belong to their respective rights holders. This project is not affiliated with or endorsed by the creators, studios, or rights holders.
+KPop Demon Hunters, the Saja Boys, characters, names, music, and related intellectual property belong to their respective rights holders.
 
 ## 👨‍💻 Author
 
-Advik Bhat
-GitHub: @advik-bhat
+**Advik Bhat**
+
+GitHub: [@advik-bhat](https://github.com/advik-bhat)
