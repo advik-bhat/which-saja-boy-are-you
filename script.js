@@ -1,4 +1,5 @@
-const audio = document.getElementById('bg-audio');
+
+    const audio = document.getElementById('bg-audio');
     const musicIcon = document.getElementById('musicIcon');
     const musicText = document.getElementById('musicText');
 
@@ -10,7 +11,7 @@ const audio = document.getElementById('bg-audio');
       } else {
         audio.pause();
         musicIcon.textContent = "🎵";
-        musicText.textContent = "Play Music";
+        musicText.textContent = "Play Soda Pop";
       }
     }
 
@@ -147,6 +148,7 @@ const audio = document.getElementById('bg-audio');
 
     let currentStep = 0;
     let scores = { Abby: 0, Baby: 0, Jinu: 0, Mystery: 0, Romance: 0 };
+    let answerHistory = [];
 
     function showMemberDetails(memberName) {
       const data = memberBios[memberName];
@@ -164,6 +166,7 @@ const audio = document.getElementById('bg-audio');
 
     function startQuiz() {
       currentStep = 0;
+      answerHistory = [];
       scores = { Abby: 0, Baby: 0, Jinu: 0, Mystery: 0, Romance: 0 };
       document.getElementById('progressBarBox').style.display = 'block';
       document.getElementById('popupModal').style.display = 'flex';
@@ -186,16 +189,45 @@ const audio = document.getElementById('bg-audio');
         html += `<button class="option-btn" onclick="selectOption('${opt.member}')">${opt.text}</button>`;
       });
 
+      if (currentStep > 0) {
+        html += `
+          <button onclick="previousQuestion()" style="
+            margin-top: 15px;
+            background: transparent;
+            border: 2px solid var(--pink-accent);
+            color: var(--pink-accent);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          ">⬅️ Back to Previous Question</button>
+        `;
+      }
+
       document.getElementById('modalContent').innerHTML = html;
     }
 
     function selectOption(member) {
+      answerHistory.push(member);
       scores[member]++;
       currentStep++;
+
       if (currentStep < questions.length) {
         showQuestion();
       } else {
         showResult();
+      }
+    }
+
+    function previousQuestion() {
+      if (currentStep > 0) {
+        const lastMember = answerHistory.pop();
+        if (lastMember) {
+          scores[lastMember]--;
+        }
+        currentStep--;
+        showQuestion();
       }
     }
 
@@ -213,3 +245,4 @@ const audio = document.getElementById('bg-audio');
 
       document.getElementById('modalContent').innerHTML = html;
     }
+  
